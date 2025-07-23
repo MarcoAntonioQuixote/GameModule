@@ -1,0 +1,85 @@
+.controller {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: black;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 300px;
+  height: 200px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin: auto;
+  font-family: sans-serif;
+  position: absolute;
+}
+
+/* D-Pad Styles */
+.dpad {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  background: #444;
+  border-radius: 0.5rem;
+}
+
+.dpad-button {
+  position: absolute;
+  background: #222;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  scale: 3;
+}
+
+.up {
+  top: -25px;
+  left: 30px;
+}
+
+.down {
+  bottom: -25px;
+  left: 30px;
+}
+
+.left {
+  left: -25px;
+  top: 30px;
+}
+
+.right {
+  right: -25px;
+  top: 30px;
+}
+
+.dpad-center {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 20px;
+  height: 20px;
+  background: #333;
+  border-radius: 4px;
+}
+
+/* A/B Buttons */
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  width: 50px;
+  height: 50px;
+  background: crimson;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  box-shadow: inset -2px -2px 4px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.a {
+  margin-left: 1rem;
+}
