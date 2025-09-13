@@ -8,11 +8,13 @@ import TrailersPage from './components/pages/TrailersPage'
 import UserPage from './components/pages/UserPage'
 import PokemonMapPage from './components/pages/PokemonMapPage'
 import GameSystemPage from './components/pages/GameSystemPage'
+import CartPage from './components/pages/CartPage'
 
 
 function App() {
     const [categories, setCategories] = useState([])
     const [game,setGame] = useState(null)
+    const [cart,setCart] = useState([])
 
     useEffect(() => {
         
@@ -38,11 +40,11 @@ function App() {
 
   return (
     <div>
-        <Header />
+        <Header cart={cart} />
 
         <Routes>
             <Route path='/' element={
-                <HomePage game={game} setGame={setGame} categories={categories} />
+                <HomePage setCart={setCart} game={game} setGame={setGame} categories={categories} />
             }/>
             <Route path='/trailers' element={<TrailersPage />}/>
             <Route path='/signin' element={<UserPage />}/>
@@ -50,6 +52,7 @@ function App() {
             <Route path='/game/:gameName' element={
                 <GameSystemPage game={game} setGame={setGame} categories={categories}/>
             }/>
+            <Route path='/cart' element={<CartPage setCart={setCart} cart={cart} />} />
         </Routes>
 
     </div>

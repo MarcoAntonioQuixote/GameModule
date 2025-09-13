@@ -1,10 +1,12 @@
 @import url(styles/controller.css);
+@import url(styles/marioStyles.css);
 
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  overflow: hidden;
 }
 
 :root {
@@ -25,7 +27,7 @@
 body {
   margin: 0;
   display: flex;
-  margin-top: 200px;
+  margin-top: 50px;
   min-width: 320px;
   min-height: 100vh;
 }
@@ -34,6 +36,26 @@ body {
     height: 100px;
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
+    border: solid yellow 2px;
+    width: 90vw;
+    margin: auto;
+    border-radius: 20px;
+    margin-bottom: 70px;
+    position: relative;
+}
+
+.logo { 
+    height: 300px;
+    width: 300px;
+    border-radius: 100%;
+}
+
+.navbar {
+    display: flex;
+    width: 70%;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .category {
@@ -42,25 +64,7 @@ body {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: space-between;
-}
-
-.movieCard {
-    border-radius: 10px;
-    width: 20%;
-    background-color: black;
-}
-
-.movieCard img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-
-.controller {
-    border: solid white 2px;
-    position: absolute;
-    bottom: 0px;
-    width: 50vw;
+    margin-bottom: 100px;
 }
 
 .wheel {
@@ -77,10 +81,11 @@ body {
 }
 
 .game {
-    border: solid black 5px;
+    /* border: solid black 5px; */
     border-radius: 10px;
     width: 90vw;
     height: 900px;
+    position: relative;
 }
 
 .pacman {
@@ -135,4 +140,118 @@ body {
     position: absolute;
     top: -30px;
     left: 20px;
+}
+
+.movieCard {
+    position: relative;
+    border: solid white 2px;
+    border-radius: 10px;
+    width: 20vw;
+    height: 175px;
+    overflow: hidden;
+    background-color: black;
+}
+
+.movieCard::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.movieCard:hover::after {
+  opacity: 0.4; /* Adjust darkness */
+}
+
+.movieCardContent {
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  z-index: 2;
+  margin-bottom: 0px;
+  width: 100%;
+  padding-right: 10px;
+  font-size: calc(20px + 0.5vw);
+  max-width: 100%;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.4);
+  white-space: nowrap;
+  display: inline-block;
+  font-family:'Courier New', Courier, monospace
+}
+
+.playButton {
+    position: absolute;
+    background-color: transparent;
+    border: transparent;
+    z-index: 1;
+}
+
+.buyButton {
+    position: absolute;
+    background-color: transparent;
+    border: transparent;
+    z-index: 100;
+    border-radius: 2px;
+    border: solid white 2px;
+    right: 10px;
+    bottom: 10px;
+}
+
+/* style={{display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0)', border: 'transparent', zIndex: '3'}} */
+
+#cart {
+    right: -15px;
+    top: -15px;
+    scale: 1.2;
+    background-color: black;
+    border: white solid 2px;
+    border-radius: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    position: absolute;
+}
+
+.cartItem {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: black;
+    position: relative;
+}
+
+.cartItem img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 50px;
+    border: solid white 2px;
+}
+
+.cartItemInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+}
+
+.cartContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    border: solid yellow 2px;
+    width: 55vw;
+    padding: 30px;
 }

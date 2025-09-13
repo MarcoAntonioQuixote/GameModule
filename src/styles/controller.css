@@ -1,16 +1,21 @@
 .controller {
+    background: black;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: black;
   padding: 2rem;
   border-radius: 1rem;
-  width: 300px;
-  height: 200px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 400px;
+  height: 150px;
+  border: solid white 5px;
   margin: auto;
   font-family: sans-serif;
   position: absolute;
+  bottom: -600px;
+  top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* D-Pad Styles */

@@ -1,29 +1,43 @@
-import axios from "axios"
+import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
-function GameCard({game, setGame}) {
+function GameCard({game, setGame, setCart}) {
+
+    const [show, setShow] = useState(false);
+    const navigate = useNavigate();
 
     const {image,title,cost,onSale} = game
 
     const play = () => {
         setGame(title)
+        navigate('/game/' + title)
     }
 
-    const deleteGame = async () => {
-        let res = await axios.delete('https://6854cfc26a6ef0ed663028e6.mockapi.io/games/' + game.id)
-
-        console.log(res)
+    const buy = () => {
+        let addedItem = {...game, id: Math.random()}
+        setCart(prev => [...prev, addedItem])
     }
+
+    // {onSale ? '🟢':'⭕'}
 
   return (
-    <div className='movieCard' >
-        <img src={image} alt="" />
-        <h2>{title} {onSale ? '🟢':'⭕'}</h2>
-        <button onClick={play}>Play</button>
-        {/* <MovieSnippet /> */}
-        <p>Your product costs {cost}</p>
-        <button onClick={deleteGame}>Delete</button>
+    <div style={{position: 'relative', display: 'flex', justifyContent: "center", alignItems: 'center'}} onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>    
+    <div className='movieCard' style={{backgroundImage: `url(${image})`, backgroundPosition: 'center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat'}} >
+        {/* <img src={image} alt="" /> */}
+        <div className="movieCardContent">
+            {title}
+        </div>
     </div>
-  )
+    {show && 
+        <>        
+            <button onClick={play} className="playButton">
+                <img style={{height: '100px', width: '100px'}} src="https://cdn-icons-png.freepik.com/512/8212/8212668.png" alt="" />
+            </button>
+            <button onClick={buy} className="buyButton">buy</button>
+        </>
+    }
+    </div>
+    )
 }
 
 export default GameCard

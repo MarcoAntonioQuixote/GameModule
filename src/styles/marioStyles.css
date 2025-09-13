@@ -1,0 +1,70 @@
+.marioEnemies {
+    display: flex;
+    position: relative;
+    padding-left: 800px;
+    bottom: 20px;
+}
+
+.marioEnemy {
+    scale: 2;
+}
+
+.mario {
+    position: absolute;
+}
+
+.ground {
+    position: relative;
+    top: 600px;
+}
+
+.marioStatusBar {
+    display: flex;
+    margin-top: -100px;
+    right: 0px;
+    position: absolute;
+    width: 60%;
+    justify-content: space-between;
+
+}
+
+.marioStatusBar-fires {
+    text-align: left;
+    width: 200px;
+    margin: auto;
+}
+
+.marioStatusBar-hearts {
+    text-align: left;
+    width: 200px;
+    margin: auto;
+}
+
+.marioHit {
+  animation: flickerAnim 0.25s infinite;
+}
+
+@keyframes flickerAnim {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.1; }
+}
+
+#marioGameOver {
+    background-color: rgba(0,0,0,.6);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    place-content: center;
+}
+
+.fireballs {
+    position: absolute;
+    width: 100%;
+}
+
+.fireball {
+    position: absolute;
+    scale: 2;
+}

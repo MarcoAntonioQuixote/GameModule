@@ -1,8 +1,8 @@
 import GameCard from './GameCard'
 
-function CategoryRow({setGame,games,label}) {
+function CategoryRow({setGame,games,label, setCart}) {
 
-    const showGames = games.map((game,i) => <GameCard key={i} game={game} setGame={setGame}/>)
+    const showGames = games.map((game,i) => <GameCard setCart={setCart} key={i} game={game} setGame={setGame}/>)
 
   return (
     <div>

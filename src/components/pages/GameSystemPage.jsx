@@ -11,7 +11,6 @@ function GameSystemPage({setGame,game,categories}) {
     const {gameName} = useParams();
 
     useEffect(() => {
-        console.log(categories)
         for (let c of categories) {
             for (let g of c.games) {
                 if (g.title.toLowerCase() === gameName.toLowerCase()) {
